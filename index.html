@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>幕光电影 | 精选影片推荐</title>
+    <meta
+      name="description"
+      content="浏览精选电影列表，使用搜索快速查找影片，并查看每部电影的详细介绍。"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__content">
+          <span class="eyebrow">Movie Explorer</span>
+          <h1>幕光电影</h1>
+          <p>
+            用简洁流畅的方式浏览值得一看的电影，搜索你感兴趣的作品，并打开详情页查看剧情、评分和亮点。
+          </p>
+          <form class="search-bar" id="search-form">
+            <label class="sr-only" for="search-input">搜索电影</label>
+            <input
+              id="search-input"
+              name="query"
+              type="search"
+              placeholder="搜索片名、类型或导演"
+              autocomplete="off"
+            />
+            <button type="submit">搜索</button>
+          </form>
+        </div>
+        <aside class="hero__panel">
+          <p class="hero__panel-label">本周推荐</p>
+          <h2 id="featured-title">正在加载...</h2>
+          <p id="featured-summary"></p>
+          <a id="featured-link" class="hero__panel-link" href="/movie.html">查看详情</a>
+        </aside>
+      </header>
+
+      <main>
+        <section class="section-header">
+          <div>
+            <span class="eyebrow">Now Showing</span>
+            <h2>电影列表</h2>
+          </div>
+          <p id="results-text">正在整理影片数据...</p>
+        </section>
+
+        <section class="movie-grid" id="movie-grid" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
