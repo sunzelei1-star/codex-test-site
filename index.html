@@ -6,7 +6,7 @@
     <title>幕光电影 | 精选影片推荐</title>
     <meta
       name="description"
-      content="浏览精选电影列表，使用搜索快速查找影片，并查看每部电影的详细介绍。"
+      content="浏览精选电影列表，使用搜索、分类筛选与排序快速发现下一部想看的电影。"
     />
     <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
     <link rel="stylesheet" href="./src/styles/main.css" />
@@ -19,43 +19,96 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
-        <div class="hero__content">
-          <span class="eyebrow">Movie Explorer</span>
-          <h1>幕光电影</h1>
-          <p>
-            用简洁流畅的方式浏览值得一看的电影，搜索你感兴趣的作品，并打开详情页查看剧情、评分和亮点。
-          </p>
-          <form class="search-bar" id="search-form">
-            <label class="sr-only" for="search-input">搜索电影</label>
-            <input
-              id="search-input"
-              name="query"
-              type="search"
-              placeholder="搜索片名、类型或导演"
-              autocomplete="off"
-            />
-            <button type="submit">搜索</button>
-          </form>
-        </div>
-        <aside class="hero__panel">
-          <p class="hero__panel-label">本周推荐</p>
-          <h2 id="featured-title">正在加载...</h2>
-          <p id="featured-summary"></p>
-          <a id="featured-link" class="hero__panel-link" href="/movie.html">查看详情</a>
-        </aside>
+      <header class="topbar">
+        <a class="brand" href="#top">
+          <span class="brand__logo">幕</span>
+          <span>
+            <strong>幕光电影</strong>
+            <small>Movie Explorer</small>
+          </span>
+        </a>
+        <nav class="topnav" aria-label="主导航">
+          <a href="#hero">首页</a>
+          <a href="#discover">发现影片</a>
+          <a href="#movie-grid">榜单</a>
+        </nav>
+        <a class="topbar__action" href="#discover">开始探索</a>
       </header>
 
       <main>
-        <section class="section-header">
-          <div>
-            <span class="eyebrow">Now Showing</span>
-            <h2>电影列表</h2>
+        <section class="hero" id="hero">
+          <div class="hero__content">
+            <span class="eyebrow">Curated cinema picks</span>
+            <h1>让下一部想看的电影，<br />一眼就出现。</h1>
+            <p>
+              从高分经典到近年热片，幕光电影以更轻盈的视觉呈现、清晰的分类筛选与排序方式，帮你快速找到今晚要看的那一部。
+            </p>
+            <div class="hero__stats" aria-label="站点亮点">
+              <div class="stat-card">
+                <strong id="stats-total">0</strong>
+                <span>精选影片</span>
+              </div>
+              <div class="stat-card">
+                <strong id="stats-genres">0</strong>
+                <span>热门类型</span>
+              </div>
+              <div class="stat-card">
+                <strong id="stats-rating">0</strong>
+                <span>平均评分</span>
+              </div>
+            </div>
+            <form class="search-bar" id="search-form">
+              <label class="sr-only" for="search-input">搜索电影</label>
+              <input
+                id="search-input"
+                name="query"
+                type="search"
+                placeholder="搜索片名、类型、导演或标签"
+                autocomplete="off"
+              />
+              <button type="submit">搜索影片</button>
+            </form>
           </div>
-          <p id="results-text">正在整理影片数据...</p>
+          <aside class="hero__panel">
+            <p class="hero__panel-label">本周推荐</p>
+            <h2 id="featured-title">正在加载...</h2>
+            <p id="featured-summary"></p>
+            <div class="hero__panel-meta">
+              <span id="featured-tag" class="detail-chip">高光影片</span>
+              <span id="featured-rating" class="detail-chip">评分加载中</span>
+            </div>
+            <a id="featured-link" class="hero__panel-link" href="/movie.html">查看详情</a>
+          </aside>
         </section>
 
-        <section class="movie-grid" id="movie-grid" aria-live="polite"></section>
+        <section class="discover" id="discover">
+          <div class="section-header section-header--stacked">
+            <div>
+              <span class="eyebrow">Discover & refine</span>
+              <h2>按偏好筛选电影</h2>
+            </div>
+            <p id="results-text">正在整理影片数据...</p>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar__block">
+              <span class="toolbar__label">分类筛选</span>
+              <div class="filter-pills" id="genre-filters" aria-label="电影分类"></div>
+            </div>
+            <div class="toolbar__block toolbar__block--compact">
+              <label class="toolbar__label" for="sort-select">排序方式</label>
+              <select id="sort-select" class="toolbar__select">
+                <option value="rating-desc">评分从高到低</option>
+                <option value="rating-asc">评分从低到高</option>
+                <option value="year-desc">年份从新到旧</option>
+                <option value="year-asc">年份从旧到新</option>
+                <option value="title-asc">片名 A-Z</option>
+              </select>
+            </div>
+          </div>
+
+          <section class="movie-grid" id="movie-grid" aria-live="polite"></section>
+        </section>
       </main>
     </div>
 
