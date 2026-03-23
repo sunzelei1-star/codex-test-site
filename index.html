@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>幕光电影 | 高质感电影发现平台</title>
+    <meta
+      name="description"
+      content="探索高口碑电影推荐，支持搜索、分类筛选、排序和沉浸式电影详情浏览。"
+    />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html">
+          <span class="brand__mark">M</span>
+          <span>
+            <strong>幕光电影</strong>
+            <small>Movie Curations</small>
+          </span>
+        </a>
+        <nav class="topnav" aria-label="主导航">
+          <a href="#discover">发现</a>
+          <a href="#collections">专题片单</a>
+          <a href="#movie-grid-section">影片库</a>
+          <a href="#footer-guide">如何预览</a>
+        </nav>
+        <a class="topbar__cta" href="#movie-grid-section">立即选片</a>
+      </header>
+
+      <main class="page-shell">
+        <section class="hero hero--cinematic" id="discover">
+          <div class="hero__backdrop" id="hero-backdrop"></div>
+          <div class="hero__overlay"></div>
+          <div class="hero__content hero__content--wide">
+            <span class="eyebrow">Streaming Picks · 2026</span>
+            <h1 id="hero-title">正在载入本周主打影片…</h1>
+            <p id="hero-summary"></p>
+            <div class="hero__meta" id="hero-meta"></div>
+            <div class="hero__actions">
+              <a id="hero-primary-link" class="button button--primary" href="./movie.html">查看详情</a>
+              <a class="button button--ghost" href="#movie-grid-section">浏览全部影片</a>
+            </div>
+          </div>
+          <aside class="hero__spotlight">
+            <p class="hero__panel-label">编辑精选</p>
+            <div class="hero__spotlight-card">
+              <img id="featured-poster" alt="本周主打电影海报" />
+              <div>
+                <h2 id="featured-title">正在加载...</h2>
+                <p id="featured-summary"></p>
+                <a id="featured-link" class="hero__panel-link" href="./movie.html">进入详情页</a>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="stats-strip" aria-label="平台亮点数据">
+          <article>
+            <strong>6+</strong>
+            <span>精选高口碑影片</span>
+          </article>
+          <article>
+            <strong>10+</strong>
+            <span>细分类型标签</span>
+          </article>
+          <article>
+            <strong>3</strong>
+            <span>排序浏览方式</span>
+          </article>
+          <article>
+            <strong>100%</strong>
+            <span>纯静态可本地预览</span>
+          </article>
+        </section>
+
+        <section class="collections" id="collections">
+          <div class="section-header section-header--stacked">
+            <div>
+              <span class="eyebrow">Featured Collections</span>
+              <h2>像真实产品页一样浏览片单</h2>
+            </div>
+            <p>我们为不同观影场景准备了主打影片、情绪标签和高质感封面，帮助你快速找到下一部想看的电影。</p>
+          </div>
+          <div class="collection-grid" id="collection-grid"></div>
+        </section>
+
+        <section class="catalog" id="movie-grid-section">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Movie Library</span>
+              <h2>电影库</h2>
+            </div>
+            <p id="results-text">正在整理影片数据...</p>
+          </div>
+
+          <div class="catalog-toolbar">
+            <form class="search-bar search-bar--toolbar" id="search-form">
+              <label class="sr-only" for="search-input">搜索电影</label>
+              <input
+                id="search-input"
+                name="query"
+                type="search"
+                placeholder="搜索片名、导演、国家或关键词"
+                autocomplete="off"
+              />
+              <button type="submit">搜索</button>
+            </form>
+
+            <div class="toolbar-actions">
+              <div class="sort-control">
+                <label for="sort-select">排序方式</label>
+                <select id="sort-select" name="sort">
+                  <option value="rating-desc">评分从高到低</option>
+                  <option value="year-desc">上映时间最新</option>
+                  <option value="title-asc">片名字母顺序</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-bar" id="genre-filters" aria-label="电影分类筛选"></div>
+          <section class="movie-grid" id="movie-grid" aria-live="polite"></section>
+        </section>
+      </main>
+
+      <footer class="footer-guide" id="footer-guide">
+        <div>
+          <strong>本地预览</strong>
+          <p>运行 <code>npm run dev</code> 后打开 <code>http://localhost:4173</code> 即可查看整个电影网站。</p>
+        </div>
+        <a class="button button--ghost" href="./movie.html?id=interstellar">查看示例详情页</a>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

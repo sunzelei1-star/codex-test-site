@@ -1,0 +1,10 @@
+{
+  "name": "codex-test-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "build": "python3 -c \"print('Static site: no build step required.')\""
+  },
+  "type": "module"
+}
